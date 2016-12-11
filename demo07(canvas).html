@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanvas1" width="200" height="100" style="border:1px solid #c3c3c3;">
+		Your browser does not support the canvas element.
+		</canvas>
+		<hr />
+		<canvas id="myCanvas2" width="200" height="100" style="border:1px solid #c3c3c3;">
+		Your browser does not support the canvas element.
+		</canvas>
+		<hr />
+		<canvas id="myCanvas4" width="200" height="100" style="border: 1px solid #666666;"></canvas>
+		
+		
+		<script type="text/javascript">
+//			红色圆形↓
+			var c=document.getElementById("myCanvas1");
+			var cxt1=c.getContext("2d");
+			cxt1.fillStyle="#FF0000";
+			cxt1.beginPath();
+			cxt1.arc(70,18,15,0,Math.PI*2,true);
+			cxt1.closePath();
+			cxt1.fill();
+//			设置渐变色↓
+			var c=document.getElementById("myCanvas2");
+			var cxt2=c.getContext("2d");
+			var grd=cxt2.createLinearGradient(0,0,170,50);
+			grd.addColorStop(0,"#FF0000");
+			grd.addColorStop(0.5,"#00FF00");
+			grd.addColorStop(1,"yellow");
+			cxt2.fillStyle=grd;
+			cxt2.fillRect(0,0,175,50);
+//			 文本↓
+			var c=document.getElementById("myCanvas4");
+			var ctx4=c.getContext("2d");
+			ctx4.font="30px Arial";
+//			ctx4.strokeText("Hello World",10,50)  空心文字
+			ctx4.fillText("Hello World",10,50)   //实体文字
+
+		</script>
+	</body>
+</html>
